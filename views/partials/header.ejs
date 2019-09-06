@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/MenuStyle.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <title><%=title%></title>
+  </head>
+  <header>
+    <div class="topnav header sticky" id="myHeader">
+    <% if(!locals.session){ %>
+      <a <% if(locals.activeAcceuil) {%>
+              <%= activeAcceuil %> <%}%> href="/">Sign up</a>
+      <a <% if(locals.activeSingIn) {%>
+              <%= activeSingIn %> <%}%> href="/signin">Log in</a>
+    <%} else{%>
+      <a href="/logout">Log out</a>
+      <a <% if(locals.activeChat) {%>
+              <%= activeChat %> <%}%> href="/chat">Chat</a>
+      <a <% if(locals.activeUsers) {%>
+              <%= activeUsers %> <%}%> href="Users">Users</a>
+    <%}%>
+      <a <% if(locals.activeAbout) {%>
+              <%= activeAbout %> <%}%> href="About">About</a>
+    <% if(locals.session){ %>
+    <a class=" blue disabled text-white nav ">connected as <%= locals.session %> </a><%}%>
+    </div>
+  </header>
+  <body style="background-color: #252424">
+    <br><br>

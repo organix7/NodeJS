@@ -1,0 +1,59 @@
+<% include partials/header %>
+  <h1 style="color: #C9C9C9">Welcome to <%= title %></h1>
+  <p style="color: #C9C9C9">Sign up form</p>
+
+  <form class="form" action="signup" method="post">
+    <div class="form-group">
+      <label style="color: #C9C9C9" for="emailInput">Email address</label>
+      <input type="email" style="width: 250px" name="mailUp" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label style="color: #C9C9C9" for="passInput">Password</label>
+      <input type="password"style="width: 250px"  name="passwordUp" class="form-control" id="passInput" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+<form action="signin" method="post">
+  <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog"role="document">
+    <div class="modal-content" style="background-color: #333" >
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold" style="color:#C9C9C9">Sign in</h4>
+        <button type="button" class="close" data-dismiss="modal" style="color:red"aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" style="color: white" name="mailIn" id="defaultForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="password" style="color: white" name="passwordIn" id="defaultForm-pass" class="form-control validate">
+          <label for="defaultForm-pass">Your password</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type='submit' class="btn btn-primary">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+
+<div class="text-center">
+  <a class="btn btn-primary btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Log in Form</a>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/js/mdb.min.js"></script>
+<% include partials/footer %>

@@ -1,0 +1,10 @@
+<% include partials/header %>
+  <h1 class="display-4"><%= title %></h1>
+  <p>Welcome to a little chat site ! :D</p>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="javascripts/about/about.js"></script>
+  <script type="text/javascript">
+    about("<%=locals.session%>")
+  </script>
+<% include partials/footer %>

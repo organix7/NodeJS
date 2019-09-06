@@ -1,0 +1,35 @@
+<% include partials/header %>
+  <h1 class="display-4"><%= title %></h1>
+  <p>Welcome to <%= title %> Page ! :D</p>
+
+  <table class="table table-dark">
+  <thead>
+    <tr>
+      <td >List Of Users</td>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Statut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (user of users) { %>
+      <tr id="<%= user.ID %>">
+        <td scope="row"><%= user.ID %></td>
+        <td scope="row"><%= user.Mail %></td>
+        <td name="<%= user.Mail %>" scope="row" class="red">Offline</td>
+        <% if(locals.session==='root@security.be' && user.Mail!=='root@security.be'){ %> <td scope="row"> <a href=delete/<%= user.ID %> >❌</a> </td>
+        <%}%>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="javascripts/users/statusUsers.js"></script>
+<script type="text/javascript">
+  statusUsers("<%=locals.session%>")
+</script>
+<% include partials/footer %>
